@@ -59,6 +59,7 @@
                     <th width="13%">No Kamar</th>
                     <th width="15%">Harga Kamar</th>
                     <th width="15%">Kelas Kamar</th>
+                    <th width="15%">Tipe Kasur</th>
                     <th width="15%">Gambar Kamar</th>
                   </tr>
                 </thead>
@@ -76,6 +77,7 @@
                       <td><?php echo $k->no_kamar; ?></td>
                       <td><?php echo rupiah($k->harga_kamar); ?></td>
                       <td><?php echo $k->nama_kelas_kamar; ?></td>
+                      <td><?php echo $k->nama_tipe_kasur; ?></td>
                       <td>
                         <a class="btn btn-success" href="<?php echo base_url() . 'admin/kamar_gambar/' . $k->id_kamar ?>"><i class="fa fa-image"></i></a>
                       </td>

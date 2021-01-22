@@ -62,6 +62,17 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="control-label col-md-3">Tipe Kasur</label>
+                  <div class="col-md-9">
+                    <select name="id_tipe_kasur" class="form-control">
+                      <option value="id_tipe_kasur">-Pilih Tipe Kasur-</option>
+                      <?php foreach ($tipe_kasur as $kk) { ?>
+                        <option value="<?php echo $kk->id_tipe_kasur; ?>"><?php echo $kk->nama_tipe_kasur ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="control-label col-md-3">Nomor Kamar</label>
                   <div class="col-md-9">
                     <input type="number" class="form-control" placeholder="masukkan nomor kamar" name="no_kamar" min="1">

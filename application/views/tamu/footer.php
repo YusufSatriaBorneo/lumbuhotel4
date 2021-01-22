@@ -13,11 +13,6 @@
           </ul>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="logo">
-          <a href="<?= site_url('index.php/welcome/home') ?>"><img src="<?php echo base_url() ?>assets/images/logofooter.png" alt=""></a>
-        </div>
-      </div>
       <div class="col-lg-4 col-xs-12">
         <div class="left-text-content">
           <p> <br>© Copyright Lumbu Hotel 2021</p>
@@ -26,7 +21,6 @@
     </div>
   </div>
 </footer>
-
 
 <!-- jQuery -->
 <script src="<?php echo base_url() ?>assets/js/jquery-2.1.0.min.js"></script>

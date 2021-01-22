@@ -27,6 +27,7 @@
   <meta name="msapplication-square310x310logo" content="ico/mstile-310x310.png" />
   <!-- Endfile -->
 </head>
+<br><br><br><br>
 
 <body id="page-top">
 
@@ -91,7 +92,7 @@
                     </select>
                   </div>
                 </div>
-                <button class="btn btn-danger">Find Now</button>
+                <button class="btn btn-danger btn-block">Find Now</button>
 
                 <?php echo form_close(); ?>
               </div>
@@ -231,7 +232,7 @@
                           <input type="text" class="form-control" name="nama_reservasi" placeholder="Nama" />
                           <input type="number" class="form-control" name="tlp_reservasi" placeholder="Tlp" />
                           <textarea rows="6" class="form-control" name="alamat_reservasi" placeholder="Alamat"></textarea>
-                          <button type="submit" class="btn btn-danger" name="Submit">Booking Kamar</button>
+                          <button type="submit" class="btn btn-danger btn-block" name="Submit">Booking Kamar</button>
 
                           <?php echo form_close(); ?>
 

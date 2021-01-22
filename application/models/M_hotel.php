@@ -1,35 +1,43 @@
 <?php
-defined('BASEPATH') or exit ('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_hotel extends CI_Model{
+class M_hotel extends CI_Model
+{
 
-	function edit_data($where,$table){
-		return $this->db->get_where($table,$where);
- 	}
+	function edit_data($where, $table)
+	{
+		return $this->db->get_where($table, $where);
+	}
 
- 	function get_data($table){
- 		return $this->db->get($table);
- 	}
+	function get_data($table)
+	{
+		return $this->db->get($table);
+	}
 
- 	function insert_data($data,$table){
- 		$this->db->insert($table,$data);
- 	}
+	function insert_data($data, $table)
+	{
+		$this->db->insert($table, $data);
+	}
 
- 	function update_data($where,$data,$table){
- 		$this->db->where($where);
- 		$this->db->update($table,$data);
- 	}
+	function update_data($where, $data, $table)
+	{
+		$this->db->where($where);
+		$this->db->update($table, $data);
+	}
 
- 	function delete_data($where,$table){
- 		$this->db->where($where);
- 		$this->db->delete($table);
- 	}
+	function delete_data($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 
-	public function kosongkan_data($table){
+	public function kosongkan_data($table)
+	{
 		return $this->db->truncate($table);
 	}
 
-	function Kamar() {
+	function Kamar()
+	{
 		return $this->db->query("select a.*,b.*,c.*
 			from kamar a join kelas_kamar b on a.id.kelas_kamar=b.id_kelas_kamar
 			join kamar_gambar c on a.id_kamar=c.id_kamar
@@ -38,49 +46,57 @@ class M_hotel extends CI_Model{
 			limit 0,15");
 	}
 
-	function KelasKamar () {
+	function KelasKamar()
+	{
 		return $this->db->query("select * from kelas_kamar order by id_kelas_kamar");
 	}
+	// Tipe Kasur
+	function TipeKasur()
+	{
+		return $this->db->query("select * from tipe_kasur order by id_tipe_kasur");
+	}
 
-	function KamarId($id_kamar) {
-	 	return $this->db->query("select a.*,b.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar where a.id_kamar='$id_kamar'");
-	 }
-	
-	function KamarGambar ($id_kamar) {
+	function KamarId($id_kamar)
+	{
+		return $this->db->query("select a.*,b.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar where a.id_kamar='$id_kamar'");
+	}
 
-	 	return $this->db->query("select * from kamar_gambar where id_kamar='$id_kamar' ");
+	function KamarGambar($id_kamar)
+	{
 
-	 }
+		return $this->db->query("select * from kamar_gambar where id_kamar='$id_kamar' ");
+	}
 
-	 function KamarAll () {
+	function KamarAll()
+	{
 
 		return $this->db->query("select a.*,b.*,c.*
 			from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar
 			join kamar_gambar c on a.id_kamar=c.id_kamar
 			group by c.id_kamar
 			order by a.id_kamar desc");
-
 	}
 
-	function kamarkosong() {
+	function kamarkosong()
+	{
 		return $this->db->query("SELECT a.*, b.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar where status_kamar=0 order by a.id_kelas_kamar desc");
 	}
 
-	function kamarisi() {
+	function kamarisi()
+	{
 		return $this->db->query("SELECT * from kamar where status_kamar=1");
-
 	}
 
-	function ReservasiId($id) {
-	 	return $this->db->query("select a.*,b.*,TIMESTAMPDIFF(DAY, a.tgl_reservasi_masuk, a.tgl_reservasi_keluar) as waktu from reservasi a 
+	function ReservasiId($id)
+	{
+		return $this->db->query("select a.*,b.*,TIMESTAMPDIFF(DAY, a.tgl_reservasi_masuk, a.tgl_reservasi_keluar) as waktu from reservasi a 
 	 	join kamar b on a.id_kamar=b.id_kamar where id_reservasi='$id' ");
+	}
 
-	 }
 
-	 
 
-	
-	
+
+
 	// public function kode_otomatis(){
 	// 	$this->db->select('right(id_pinjam,3) as kode', false);
 	// 	$this->db->order_by('id_pinjam', 'desc');
@@ -98,5 +114,5 @@ class M_hotel extends CI_Model{
 
 	// 	return $kodejadi;
 	// }
- 	
- }
+
+}

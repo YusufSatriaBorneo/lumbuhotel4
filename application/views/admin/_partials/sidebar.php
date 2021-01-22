@@ -15,6 +15,7 @@
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="<?php echo site_url('admin/Kamar_kelas') ?>">KAMAR KELAS</a>
             <a class="dropdown-item" href="<?php echo site_url('admin/Kamar') ?>">KAMAR</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/Tipe_kasur') ?>">TIPE KASUR</a>
         </div>
     </li>
 

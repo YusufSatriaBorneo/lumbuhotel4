@@ -62,29 +62,42 @@
                         <?php } ?>
                       </select>
                     </div>
-                    <div class="form-group">
-                      <label class="control-label col-md-3">Nomor Kamar</label>
-                      <div class="col-md-9">
-                        <input type="text" class="form-control" placeholder="" name="no_kamar" value="<?php echo $k->no_kamar; ?>">
-                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Tipe Kasur</label>
+                    <div class="col-md-9">
+                      <input type="hidden" value="<?php echo $k->id_kamar; ?>" name="id_kamar">
+                      <select name="id_tipe_kasur" class="form-control">
+                        <option value="<?php echo $k->id_tipe_kasur; ?>"> kelas saat ini : <?php echo $k->nama_tipe_kasur ?></option>
+                        <?php foreach ($tipe_kasur as $kk) { ?>
+                          <option value="<?php echo $kk->id_tipe_kasur; ?>"><?php echo $kk->nama_tipe_kasur ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
-                    <div class="form-group">
-                      <label class="control-label col-md-3">Harga Kamar</label>
-                      <div class="col-md-9">
-                        <input type="text" class="form-control" placeholder="" name="harga_kamar" value="<?php echo $k->harga_kamar; ?>">
-                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Nomor Kamar</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" placeholder="" name="no_kamar" value="<?php echo $k->no_kamar; ?>">
                     </div>
-                    <div class="form-group">
-                      <label class="control-label col-md-3">Keterangan Kamar</label>
-                      <div class="col-md-9">
-                        <textarea type="textarea" id="summernote" rows="10" class="form-control" name="fasilitas_kamar" value=""><?php echo $k->fasilitas_kamar; ?></textarea>
-                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Harga Kamar</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" placeholder="" name="harga_kamar" value="<?php echo $k->harga_kamar; ?>">
                     </div>
-                    <div class="form-group">
-                      <div class="col-md-9">
-                        <input type="submit" class="btn btn-success " value="UPDATE">
-                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Keterangan Kamar</label>
+                    <div class="col-md-9">
+                      <textarea type="textarea" id="summernote" rows="10" class="form-control" name="fasilitas_kamar" value=""><?php echo $k->fasilitas_kamar; ?></textarea>
                     </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-9">
+                      <input type="submit" class="btn btn-success " value="UPDATE">
+                    </div>
+                  </div>
                 </form>
               <?php } ?>
 

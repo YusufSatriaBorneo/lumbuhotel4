@@ -61,7 +61,7 @@
               </div>
             </div>
             <br>
-            <button class="btn btn-danger">Find Now</button>
+            <button class="btn-block btn-danger">Find Now</button>
 
             <?php echo form_close(); ?>
           </div>
@@ -99,7 +99,7 @@
                     </h5>
                     <hr style="margin-top: 1; margin-bottom: 1;">
                     <div class="listing-detail"><?php echo $value['nama_kelas_kamar']; ?> </div>
-                    <a class="btn btn-danger" href="<?php echo base_url(); ?>welcome/kamardetail/<?php echo $value['id_kamar']; ?>">Selengkapnya</a>
+                    <a class="btn btn-danger btn-block" href="<?php echo base_url(); ?>welcome/kamardetail/<?php echo $value['id_kamar']; ?>">Selengkapnya</a>
 
                   </div>
                 </div>
