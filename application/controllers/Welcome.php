@@ -23,6 +23,7 @@ class Welcome extends CI_Controller
 	{
 		$data['kamar'] 			= $this->m_tamu->kamarall();
 		$data['kelas_kamar'] 	= $this->m_hotel->get_data('kelas_kamar');
+		$data['tipe_kasur'] 	= $this->m_hotel->get_data('tipe_kasur'); //tambahan
 		$this->load->view('welcome_message', $data);
 	}
 
@@ -41,6 +42,7 @@ class Welcome extends CI_Controller
 		$data['kamar'] 			= $this->m_tamu->KamarDetail($id);
 		$data['kamar_gambar'] 	= $this->m_tamu->KamarGambarId($id);
 		$data['kelas_kamar'] 	= $this->m_hotel->get_data('kelas_kamar');
+		$data['tipe_kasur'] 	= $this->m_hotel->get_data('tipe_kasur'); //tambahan
 		$this->load->view('kamar_detail', $data);
 	}
 

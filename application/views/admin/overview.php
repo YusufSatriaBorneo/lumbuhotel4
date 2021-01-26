@@ -82,7 +82,7 @@
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-envelope"></i>
                 </div>
-                <div class="mr-5"><?php echo $this->m_hotel->get_data('saran')->num_rows(); ?> TOTAL KRITIK & SARAN</div>
+                <div class="mr-5"><?php echo $this->m_hotel->get_data('saran')->num_rows(); ?> TOTAL RESERVASI SANGKIMA</div>
               </div>
 
             </div>
@@ -185,6 +185,7 @@
                     <th width="13%">No Kamar</th>
                     <th width="15%">Harga Kamar</th>
                     <th width="15%">Kelas Kamar</th>
+                    <th width="15%">Tipe Kasur</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -197,6 +198,7 @@
                       <td><?php echo $k->no_kamar; ?></td>
                       <td><?php echo rupiah($k->harga_kamar); ?></td>
                       <td><?php echo $k->nama_kelas_kamar; ?></td>
+                      <td><?php echo $k->nama_tipe_kasur; ?></td>
                     </tr>
                   <?php
                   }

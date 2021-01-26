@@ -38,8 +38,8 @@ class M_hotel extends CI_Model
 
 	function Kamar()
 	{
-		return $this->db->query("select a.*,b.*,c.*
-			from kamar a join kelas_kamar b on a.id.kelas_kamar=b.id_kelas_kamar
+		return $this->db->query("SELECT a.*,b.*,c.*,d.*
+			from kamar a join kelas_kamar b on a.id.kelas_kamar=b.id_kelas_kamar and kamar a join tipe_kasur d on a.id.tipe_kasur=d.id_tipe_kasur
 			join kamar_gambar c on a.id_kamar=c.id_kamar
 			group by c.id_kamar
 			order by a.id_kamar desc
@@ -58,7 +58,7 @@ class M_hotel extends CI_Model
 
 	function KamarId($id_kamar)
 	{
-		return $this->db->query("select a.*,b.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar where a.id_kamar='$id_kamar'");
+		return $this->db->query("SELECT a.*,b.*,c.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar JOIN tipe_kasur c on a.id_tipe_kasur=c.id_tipe_kasur where a.id_kamar='$id_kamar'");
 	}
 
 	function KamarGambar($id_kamar)
@@ -79,7 +79,7 @@ class M_hotel extends CI_Model
 
 	function kamarkosong()
 	{
-		return $this->db->query("SELECT a.*, b.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar where status_kamar=0 order by a.id_kelas_kamar desc");
+		return $this->db->query("SELECT a.*, b.*, c.* from kamar a join kelas_kamar b on a.id_kelas_kamar=b.id_kelas_kamar JOIN tipe_kasur c on a.id_tipe_kasur=c.id_tipe_kasur where status_kamar=0 order by a.id_kelas_kamar desc");
 	}
 
 	function kamarisi()

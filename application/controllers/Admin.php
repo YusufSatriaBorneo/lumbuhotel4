@@ -421,7 +421,7 @@ class Admin extends CI_Controller
 	function kamar()
 	{
 
-		$data['kamar'] = $this->db->query("SELECT kelas_kamar.id_kelas_kamar, kelas_kamar.nama_kelas_kamar, kamar.id_kamar, kamar.no_kamar, kamar.harga_kamar, kamar.fasilitas_kamar, kamar.status_kamar, kamar.id_kelas_kamar FROM kamar INNER JOIN kelas_kamar ON kamar.id_kelas_kamar=kelas_kamar.id_kelas_kamar")->result();
+		$data['kamar'] = $this->db->query("SELECT kelas_kamar.id_kelas_kamar, kelas_kamar.nama_kelas_kamar, tipe_kasur.id_tipe_kasur, tipe_kasur.nama_tipe_kasur, kamar.id_kamar, kamar.no_kamar, kamar.harga_kamar, kamar.fasilitas_kamar, kamar.status_kamar, kamar.id_kelas_kamar FROM kamar INNER JOIN kelas_kamar ON kamar.id_kelas_kamar=kelas_kamar.id_kelas_kamar JOIN tipe_kasur ON kamar.id_tipe_kasur=tipe_kasur.id_tipe_kasur")->result();
 
 		$this->load->view('admin/kamar.php', $data);
 	}
@@ -438,7 +438,7 @@ class Admin extends CI_Controller
 	{
 		$where = array('id_kamar' => $id_kamar);
 		// mengambil data dari database sesuai id
-		$data['kamar'] = $this->db->query("SELECT kelas_kamar.id_kelas_kamar, kelas_kamar.nama_kelas_kamar, kamar.id_kamar, kamar.no_kamar, kamar.harga_kamar, kamar.fasilitas_kamar, kamar.status_kamar, kamar.id_kelas_kamar FROM kamar , kelas_kamar  where kamar.id_kelas_kamar=kelas_kamar.id_kelas_kamar and kamar.id_kamar=$id_kamar ")->result();
+		$data['kamar'] = $this->db->query("SELECT kelas_kamar.id_kelas_kamar, kelas_kamar.nama_kelas_kamar, tipe_kasur.id_tipe_kasur, tipe_kasur.nama_tipe_kasur, kamar.id_kamar, kamar.no_kamar, kamar.harga_kamar, kamar.fasilitas_kamar, kamar.status_kamar, kamar.id_kelas_kamar, kamar.id_tipe_kasur FROM kamar , kelas_kamar , tipe_kasur where kamar.id_kelas_kamar=kelas_kamar.id_kelas_kamar and kamar.id_tipe_kasur=tipe_kasur.id_tipe_kasur and kamar.id_kamar=$id_kamar")->result();
 		$data['kelas_kamar'] = $this->m_hotel->get_data('kelas_kamar')->result();
 		$data['tipe_kasur'] = $this->m_hotel->get_data('tipe_kasur')->result();
 		$this->load->view('admin/kamar_edit.php', $data);
@@ -448,6 +448,7 @@ class Admin extends CI_Controller
 	{
 		$id_kamar = $this->input->post('id_kamar');
 		$id_kelas_kamar = $this->input->post('id_kelas_kamar');
+		$id_tipe_kasur = $this->input->post('id_tipe_kasur');  // Tambahan
 		$no_kamar = $this->input->post('no_kamar');
 		$harga_kamar = $this->input->post('harga_kamar');
 		$fasilitas_kamar = $this->input->post('fasilitas_kamar');
@@ -459,6 +460,7 @@ class Admin extends CI_Controller
 
 		$data = array(
 			'id_kelas_kamar' => $id_kelas_kamar,
+			'id_tipe_kasur' => $id_tipe_kasur,  // Tambahan
 			'no_kamar' => $no_kamar,
 			'harga_kamar' => $harga_kamar,
 			'fasilitas_kamar' => $fasilitas_kamar
@@ -483,6 +485,8 @@ class Admin extends CI_Controller
 			$data['fasilitas_kamar'] 	=  $value['fasilitas_kamar'];
 			$data['id_kelas_kamar'] 	=  $value['id_kelas_kamar'];
 			$data['nama_kelas_kamar'] 	=  $value['nama_kelas_kamar'];
+			$data['id_tipe_kasur']  	=  $value['id_tipe_kasur'];  // Tambahan
+			$data['nama_tipe_kasur'] 	=  $value['nama_tipe_kasur']; // Tambahan
 		}
 
 		$this->load->view('admin/kamar_gambar.php', $data);
@@ -533,12 +537,14 @@ class Admin extends CI_Controller
 	function kamar_tambah_aksi()
 	{
 		$id_kelas_kamar = $this->input->post('id_kelas_kamar');
+		$id_tipe_kasur = $this->input->post('id_tipe_kasur'); // Tambahan
 		$no_kamar = $this->input->post('no_kamar');
 		$harga_kamar = $this->input->post('harga_kamar');
 		$content = $this->input->post('fasilitas_kamar');
 
 		$data = array(
 			'id_kelas_kamar' => $id_kelas_kamar,
+			'id_tipe_kasur' => $id_tipe_kasur,  // Tambahan
 			'no_kamar' => $no_kamar,
 			'harga_kamar' => $harga_kamar,
 			'fasilitas_kamar' => $content

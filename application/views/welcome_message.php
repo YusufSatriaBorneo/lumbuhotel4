@@ -92,7 +92,7 @@
                     }
                     ?>
 
-                    <h3><a href="<?php echo base_url(); ?>welcome/kamardetail/<?php echo $value['id_kamar']; ?>"><?php echo $value['no_kamar']; ?></a></h3>
+                    <h3><a href="<?php echo base_url(); ?>welcome/kamardetail/<?php echo $value['id_kamar']; ?>"><?php echo $value['nama_tipe_kasur']; ?></a></h3>
                     <hr style="margin-top: 1; margin-bottom: 1;">
                     <h5>
                       <p class="price">Harga: <?php echo rupiah($value['harga_kamar']); ?></p>

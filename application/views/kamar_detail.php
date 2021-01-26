@@ -200,6 +200,7 @@
                     </div>
 
                     <h6><span class="fa fa-home"></span> <?php echo $nama_kelas_kamar; ?></h6>
+
                     <div class="listing-detail">
 
                     </div>

@@ -89,6 +89,7 @@
                 <h3>Nomer Kamar : <?php echo $no_kamar;  ?> </h3>
                 <h3>Harga Kamar : <?php echo rupiah($harga_kamar); ?> </h3>
                 <h3>Kelas Kamar : <?php echo $nama_kelas_kamar ?> </h3>
+                <h3>Tipe Kasur : <?php echo $nama_tipe_kasur ?> </h3>
               </center>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <br>
